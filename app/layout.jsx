@@ -11,6 +11,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarInset } from "@/components/ui/sidebar";
 import SidebarRightClient from "@/components/sidebar-right-client";
+import { Toaster } from "@/components/ui/sonner"
 
 
 // importação de estilos:
@@ -75,6 +76,7 @@ export default function RootLayout({ children }) {
               </div>
             </SidebarProvider>
           </IndiceProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
