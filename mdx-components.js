@@ -7,6 +7,9 @@ export function useMDXComponents(components) {
     h2: ({ children }) => (
       <h2 className={`text-lg font-semibold mt-2 ${esquivar_do_cabecalho}`} id={children.toLowerCase().replace(/\s/g, '-')}>{children}</h2>
     ),
+    h3: ({ children }) => (
+      <h3 className={`text-base font-semibold mt-2 ${esquivar_do_cabecalho}`} id={children.toLowerCase().replace(/\s/g, '-')}>{children}</h3>
+    ),
     ul: ({ children }) => (
       <ul className="list-disc ml-4">{children}</ul>
     ),
@@ -19,6 +22,9 @@ export function useMDXComponents(components) {
       >
         {children}
       </a>
+    ),
+    hr: () => (
+      <hr className="border-t border-gray-300 dark:border-gray-700 mt-4" />
     ),
     ...components,
   }
