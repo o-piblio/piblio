@@ -1,14 +1,27 @@
-const EmailCopiavel = ({ email }) => {
-  const { toast } = useToast()
-  const preRef = useRef<HTMLSpanElement>(null);
+"use client";
+
+import { toast } from "sonner"
+import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { Copy } from "lucide-react"
+
+const Email = ({ email }) => {
+  const preRef = useRef(null);
 
   // função para copiar o conteúdo renderizado dentro do <pre>
   const copiar = () => {
     if (preRef.current) {
       // seleciona o texto renderizado dentro do elemento
       const content = preRef.current.innerText;
-      navigator.clipboard.writeText(content)}
-  };
+      navigator.clipboard
+        .writeText(content)
+        .then(() => {
+          toast.success("O e-mail foi copiado.")
+        })
+        .catch(() => {
+          toast.error("Houve um erro ao copiar o e-mail. Se ele persistir, tente recarregar a página.")})
+      };
+    };
 
   return(
       <Button
@@ -23,6 +36,47 @@ const EmailCopiavel = ({ email }) => {
           <Copy/>
         </span>
       </Button>
-  )
+  );
 }
+
+const Campo = ({ titulo, children }) => {
+  const preRef = useRef(null); // referência ao elemento que será copiado
+
+  // função para copiar o conteúdo renderizado dentro do <pre>
+  const copiar = () => {
+    if (preRef.current) {
+      // seleciona o texto renderizado dentro do elemento
+      const content = preRef.current.innerText;
+      navigator.clipboard
+        .writeText(content)
+        .then(() => {
+          toast.success("O texto foi copiado.")
+        })
+        .catch(() => {
+          toast.error("Houve um erro ao copiar. Se ele persistir, tente recarregar a página.")
+        });
+    }
   };
+
+  return (
+    <div className="border rounded-md max-w-[90vw] my-2 lg:max-w-[66%] bg-background dark:bg-input/30">
+      <div className="border-b p-3 select-none flex items-center justify-between">
+        {titulo === undefined ? <p>Copie</p> : <p>{titulo}</p>}
+        <Button variant="outline" onClick={copiar}>
+          Copiar <Copy />
+        </Button>
+      </div>
+
+      <div
+        className="dark:bg-[#0a0a0a] py-3 px-5 rounded-md"
+        ref={preRef} // referência para o elemento
+      >
+        <pre className="max-h-72 flex flex-col gap-3 overflow-y-auto overflow-x-hidden font-mono whitespace-pre-wrap">
+          {children}
+        </pre>
+      </div>
+    </div>
+  );
+};
+
+export { Campo, Email }
