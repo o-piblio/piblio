@@ -20,9 +20,9 @@ export function SidebarRight({ indice = [], ...props }) {
   const montarIndice = indice.map((item) => ({
     topico: item.topico,
     url: `#${item.topico.toLowerCase().replace(/\s+/g, "-")}`,
-    items: item.item?.map((subItem) => ({
-      subtopico: subItem.subtopico,
-      sub_url: `#${subItem.subtopico.toLowerCase().replace(/\s+/g, "-")}`,
+    items: item.subtopicos?.map((subtopico) => ({
+      subtopico: subtopico.subtopico,
+      sub_url: `#${subtopico.subtopico.toLowerCase().replace(/\s+/g, "-")}`,
     })),
   }));
 
@@ -36,6 +36,7 @@ export function SidebarRight({ indice = [], ...props }) {
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu>
+            <SidebarHeader>{indice.titulo}</SidebarHeader>
             {montarIndice.map((item) => (
               <SidebarMenuItem key={item.topico}>
                 <SidebarMenuButton asChild>
