@@ -1,22 +1,21 @@
 "use client";
 
-import { SidebarIcon } from "lucide-react";
+// importação de dependências:
+import React from "react";
+import Link from "next/link"; 
 
-import { SearchForm } from "@/components/search-form";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+
+// importação de componentes:
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { useSidebar } from "@/components/ui/sidebar";
 import { Logo } from "./structure/logo";
+import { Progress } from "./progress";
+import { SearchForm } from "@/components/search-form";
+import { Separator } from "@/components/ui/separator";
 import { Toggle } from "./ui/toggle";
-import Link from "next/link";
+import { useSidebar } from "@/components/ui/sidebar";
+
+// importação de ícones:
+import { SidebarIcon } from "lucide-react";
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar();
@@ -41,6 +40,7 @@ export function SiteHeader() {
         </Button>
         <Toggle />
       </div>
+      <Progress />
     </header>
   );
 }
