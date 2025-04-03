@@ -36,7 +36,7 @@ export function SiteHeader() {
 
         <SearchForm className="w-full sm:ml-auto sm:w-auto" />
         <Button asChild variant="outline">
-          <Link href="/contribuir">Contribua</Link>
+          <Link href="/docs/contribuir">Contribua</Link>
         </Button>
         <Toggle />
       </div>
