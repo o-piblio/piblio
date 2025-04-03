@@ -7,7 +7,7 @@ import Link from "next/link";
 
 // importação de componentes:
 import { Button } from "@/components/ui/button";
-import { Logo } from "./structure/logo";
+import { Logo } from "./ui/logo";
 import { Progress } from "./progress";
 import { SearchForm } from "@/components/search-form";
 import { Separator } from "@/components/ui/separator";

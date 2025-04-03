@@ -19,7 +19,7 @@ import "./globals.css";
 
 // importação de fontes:
 import { Inter, Reenie_Beanie } from "next/font/google";
-import { Footer } from "@/components/structure/footer";
+import { Footer } from "@/components/ui/footer";
 
 const inter = Inter({
   variable: "--font-inter",
