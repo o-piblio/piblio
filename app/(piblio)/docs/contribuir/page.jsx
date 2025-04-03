@@ -9,6 +9,11 @@ import Contribuir from "@/app/(piblio)/docs/_markdown/contribuir.mdx";
 
 export default function Page() {
   const { setIndice } = useIndice();
+  const { setTitulo } = useIndice();
+
+  useEffect(() => {
+    setTitulo("Como contribuir?");
+  }, [setTitulo])
 
   useEffect(() => {
     setIndice([

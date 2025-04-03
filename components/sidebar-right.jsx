@@ -15,8 +15,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { Logo } from "./ui/logo";
 
-export function SidebarRight({ indice = [], ...props }) {
+export function SidebarRight({ indice = [], titulo = "", ...props }) {
   const montarIndice = indice.map((item) => ({
     topico: item.topico,
     url: `#${item.topico.toLowerCase().replace(/\s+/g, "-")}`,
@@ -32,11 +33,11 @@ export function SidebarRight({ indice = [], ...props }) {
       className="sticky top-(--header-height) h-[calc(100svh-var(--header-height))]! hidden lg:flex border-l"
       {...props}
     >
-      <SidebarHeader className="font-semibold">Nesta página</SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
+        <SidebarHeader className="font-semibold">Nesta página</SidebarHeader>
           <SidebarMenu>
-            <SidebarHeader>{indice.titulo}</SidebarHeader>
+            <SidebarHeader>{titulo}</SidebarHeader>
             {montarIndice.map((item) => (
               <SidebarMenuItem key={item.topico}>
                 <SidebarMenuButton asChild>
@@ -45,7 +46,7 @@ export function SidebarRight({ indice = [], ...props }) {
                   </Link>
                 </SidebarMenuButton>
                 {item.items?.length ? (
-                  <SidebarMenuSub className="ml-0 border-l-0 px-1.5">
+                  <SidebarMenuSub className="ml-2 border-l-0 px-1.5">
                     {item.items.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.subtopico}>
                         <SidebarMenuSubButton asChild>
