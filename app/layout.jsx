@@ -53,7 +53,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning className="scroll-smooth">
       <body
         className={`${inter.variable} ${reenie.variable} antialiased [--header-height:calc(theme(spacing.14))]`}
       >
