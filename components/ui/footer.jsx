@@ -23,13 +23,10 @@ export function Footer() {
           <Logo />
           <ul className="flex flex-wrap items-centertext-base font-medium sm:mb-0 text-muted-foreground">
             <li>
-              <Ir destino="https://github.com/o-piblio/piblio/blob/principal/LICENSE" texto="Licença" />
+              <Link href="/docs/licencas" className="hover:underline me-4 md:me-6">Licenças</Link>
             </li>
             <li>
-              <Ir destino="mailto:o-piblio@proton.me" texto="Contato" />
-            </li>
-            <li>
-              <Ir destino="" texto="Valores" />
+              <a href="mailto:o-piblio@proton.me" target="_blank" rel="noopener noreferrer" className="hover:underline me-4 md:me-2">Contato</a>
             </li>
           </ul>
         </div>
