@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sidebar";
 
 export function SidebarRight({ indice = [], titulo = "", ...props }) {
+
   const montarIndice = indice.map((item) => ({
     topico: item.topico,
     url: `#${item.topico.toLowerCase().replace(/\s+/g, "-")}`,
@@ -36,7 +37,14 @@ export function SidebarRight({ indice = [], titulo = "", ...props }) {
         <SidebarGroup>
         <SidebarHeader className="font-semibold">Nesta página</SidebarHeader>
           <SidebarMenu>
-            <SidebarHeader>{titulo}</SidebarHeader>
+            <SidebarHeader>
+              <Link
+                href={`#${titulo.toLowerCase().replace(/\s+/g, "-")}`}
+                scroll
+              >
+                {titulo}
+              </Link>
+            </SidebarHeader>
             {montarIndice.map((item) => (
               <SidebarMenuItem key={item.topico}>
                 <SidebarMenuButton asChild>
