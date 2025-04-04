@@ -24,7 +24,10 @@ export function useMDXComponents(components) {
       </a>
     ),
     hr: () => (
-      <hr className="border-t border-gray-300 dark:border-gray-700 mt-4" />
+      <hr className="border-t border-gray-300 dark:border-gray-700 mt-2 mb-2" />
+    ),
+    p: ({ children }) => (
+      <p className="text-base leading-7 mb-2">{children}</p>
     ),
     ...components,
   }
