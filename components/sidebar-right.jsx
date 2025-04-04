@@ -15,7 +15,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Logo } from "./ui/logo";
 
 export function SidebarRight({ indice = [], titulo = "", ...props }) {
   const montarIndice = indice.map((item) => ({
