@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans, Merriweather } from "next/font/google";
+import { Merriweather, Noto_Sans, Reenie_Beanie } from "next/font/google";
+import { TooltipProvider } from "@/components/ui/tooltip"
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const merriweatherHeading = Merriweather({subsets:['latin'],variable:'--font-heading'});
-
-const notoSans = Noto_Sans({subsets:['latin'],variable:'--font-sans'});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const merriweatherHeading = Merriweather({
   subsets: ["latin"],
+  variable: "--font-heading",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const notoSans = Noto_Sans({ subsets: ["latin"], variable: "--font-sans" });
+
+const reenie = Reenie_Beanie({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-reenie",
 });
 
 export const metadata: Metadata = {
@@ -26,9 +26,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", notoSans.variable, merriweatherHeading.variable)}
+      className={cn(
+        "h-full",
+        "antialiased",
+        "font-sans",
+        notoSans.variable,
+        merriweatherHeading.variable,
+        reenie.variable
+      )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <TooltipProvider>{children}</TooltipProvider>
+      </body>
     </html>
   );
 }
